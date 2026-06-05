@@ -33,7 +33,7 @@ const withRetry = async (fn, maxTries = 3, delayMs = 400) => {
 // ─── Helper: parse axios errors into user-friendly messages ─────────────────
 const parseError = (err, defaultMsg) => {
   if (!err.response) {
-    return 'Cannot reach the server. Please make sure the backend is running on port 8000.';
+    return 'Cannot reach the server. The backend may be starting up — please wait a moment and try again.';
   }
   const status = err.response.status;
   const detail = (err.response?.data?.detail || '').toLowerCase();
